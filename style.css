@@ -20,9 +20,10 @@
     font-size: 3em;
     background: rgb(138, 114, 114);
     opacity: 0.8;
+    height: 70px
 }
 
-#zero {
+.zero {
     grid-column: 1 / 3
 }
 
