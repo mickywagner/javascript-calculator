@@ -18,7 +18,7 @@ function divide(a, b) {
 }
 
 function operate(operator, num1, num2) {
-    // calls one of the above functions on numbers
+    add(num1, num2)
 }
 
 let displayDiv = document.querySelector('#display')
@@ -30,3 +30,9 @@ numBtns.forEach(button => button.addEventListener('click', numToDisplay))
 function numToDisplay(e) {
     displayValue = displayDiv.innerHTML = displayDiv.innerHTML + e.target.id
 }
+
+let clear = document.querySelector('#clear')
+clear.addEventListener('click', () => {
+    displayValue = ""
+    displayDiv.innerHTML = displayValue
+})
