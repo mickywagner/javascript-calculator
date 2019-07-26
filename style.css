@@ -1,5 +1,5 @@
 * {
-    background: rgb(243, 203, 203);
+    background: rgb(245, 225, 225);
     color: white;
 }
 
@@ -38,7 +38,7 @@ button:focus {
     outline: 0;
 }
 
-.operator {
+.operator, #equal {
     background: rgb(161, 78, 78);
 }
 
