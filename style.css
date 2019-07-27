@@ -7,7 +7,7 @@
     display: grid;
     margin: 0 auto;
     margin-top: 20px;
-    width: 300px;
+    width: 350px;
     grid-template-columns: repeat(4, 1fr);
     border: 1px solid  rgb(138, 114, 114);
     box-shadow: 2px 5px 4px 2px rgb(165, 153, 153);
@@ -40,6 +40,7 @@ button:focus {
 
 .operator, #equal {
     background: rgb(161, 78, 78);
+    font-size: 2em;
 }
 
 .top {

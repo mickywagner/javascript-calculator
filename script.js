@@ -14,15 +14,15 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
-        return `Can't divide by 0!`
+        return `Nope!`
     }
     return a / b
 }
 
 function operate(op, in1, in2) {
     let result
-    in1 = in1 * 1
-    in2 = in2 * 1
+    in1 *= 1
+    in2 *= 1
     switch (op) {
         case 'addition':
             result = add(in1, in2)
@@ -39,7 +39,6 @@ function operate(op, in1, in2) {
         case 'equal':
             result = displayValue
     }
-    console.log(result)
     displayValue = result
     input1 = result
     displayDiv.innerHTML = result
@@ -58,7 +57,6 @@ let numBtns = document.querySelectorAll('.num')
 numBtns.forEach(button => button.addEventListener('click', (e) => {
     if(input1 === undefined) {
         displayValue = displayDiv.innerHTML = displayDiv.innerHTML + e.target.id
-        console.log(input1)
     } else if(displayDiv.innerHTML === input1) {
         displayDiv.innerHTML = e.target.id
     } else {
@@ -79,8 +77,9 @@ let operatorBtns = document.querySelectorAll('.operator')
 operatorBtns.forEach(button => button.addEventListener('click', (e) => {
     operator = e.target.id
     input1 = e.path[1].childNodes[1].innerHTML
-    console.log(input1)
-    console.log(operator)
+    if(dot.disabled === true) {
+        dot.disabled = false
+    }
 }))
 
 let equalBtn = document.querySelector('#equal')
@@ -88,6 +87,19 @@ equalBtn.addEventListener('click', (e) => {
     input2 = e.path[1].childNodes[1].innerHTML
     operate(operator, input1, input2)
 })
+
+let dot = document.querySelector('#dot')
+dot.addEventListener('click', (e) => {
+    dot.disabled = true;
+    if(input1 === undefined) {
+        displayValue = displayDiv.innerHTML = displayDiv.innerHTML + e.target.innerHTML
+    } else if(displayDiv.innerHTML === input1) {
+        displayDiv.innerHTML = e.target.innerHTML
+    } else {
+        displayValue = displayDiv.innerHTML = displayDiv.innerHTML + e.target.innerHTML
+    } 
+})
+
 
 
 
