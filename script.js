@@ -14,7 +14,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
-        return `Nope!`
+        return `One does not simply divide by zero!`
     }
     return a / b
 }
@@ -39,9 +39,15 @@ function operate(op, in1, in2) {
         case 'equal':
             result = displayValue
     }
-    displayValue = result
-    displayDiv.innerHTML = result
-    return result
+    if(typeof(result) === 'number') {
+        displayValue = Math.round(1000*result)/1000;
+        displayDiv.innerHTML = Math.round(1000*result)/1000;
+        return result
+    } else {
+        displayValue = result
+        displayDiv.innerHTML = result
+        return result
+    }
     console.log("math func: " + input1 + " " + input2 + " " + operator)
 }
 
@@ -62,6 +68,9 @@ clear.addEventListener('click', () => {
     input2 = undefined
     operator = undefined
     console.log("Clear : " + operator, input1, input2)
+    if(dot.disabled === true) {
+        dot.disabled = false
+    }
 })
 
 let numBtns = document.querySelectorAll('.num')
