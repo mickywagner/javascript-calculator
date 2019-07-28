@@ -40,9 +40,9 @@ function operate(op, in1, in2) {
             result = displayValue
     }
     displayValue = result
-    input1 = result
     displayDiv.innerHTML = result
     return result
+    console.log("math func: " + input1 + " " + input2 + " " + operator)
 }
 
 // Button Events and Functions
@@ -52,6 +52,17 @@ let displayValue;
 let input1;
 let input2;
 let operator;
+console.log("Start : " + operator, input1, input2)
+
+let clear = document.querySelector('#clear')
+clear.addEventListener('click', () => {
+    displayValue = ""
+    displayDiv.innerHTML = displayValue
+    input1 = undefined
+    input2 = undefined
+    operator = undefined
+    console.log("Clear : " + operator, input1, input2)
+})
 
 let numBtns = document.querySelectorAll('.num')
 numBtns.forEach(button => button.addEventListener('click', (e) => {
@@ -64,29 +75,37 @@ numBtns.forEach(button => button.addEventListener('click', (e) => {
     }   
 }))
 
-let clear = document.querySelector('#clear')
-clear.addEventListener('click', () => {
-    displayValue = ""
-    displayDiv.innerHTML = displayValue
-    input1 = ""
-    input2 = ""
-    operator = ""
-})
-
 let operatorBtns = document.querySelectorAll('.operator')
 operatorBtns.forEach(button => button.addEventListener('click', (e) => {
+    console.log("Operator: " + input1 + " " + input2 + " " + operator)
+    if(operator !== undefined && input1 !== undefined) {
+        input2 = e.path[1].childNodes[1].innerHTML
+        operate(operator, input1, input2)
+    }
+    
     operator = e.target.id
     input1 = e.path[1].childNodes[1].innerHTML
+    
     if(dot.disabled === true) {
         dot.disabled = false
+    }
+    
+    if(equalBtn.disabled === true) {
+        equalBtn.disabled = false
     }
 }))
 
 let equalBtn = document.querySelector('#equal')
 equalBtn.addEventListener('click', (e) => {
     input2 = e.path[1].childNodes[1].innerHTML
+    console.log("EqualBtn: " + input1 + " " + input2 + " " + operator)
     operate(operator, input1, input2)
+    if(equalBtn.disabled === false) {
+        equalBtn.disabled = true
+    }
+    operator = undefined
 })
+
 
 let dot = document.querySelector('#dot')
 dot.addEventListener('click', (e) => {
