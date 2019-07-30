@@ -60,6 +60,7 @@ let input2;
 let operator;
 console.log("Start : " + operator, input1, input2)
 
+
 let clear = document.querySelector('#clear')
 clear.addEventListener('click', () => {
     displayValue = ""
@@ -128,6 +129,10 @@ dot.addEventListener('click', (e) => {
     } 
 })
 
+let backSpace = document.querySelector('#backspace')
+backSpace.addEventListener('click', () => {
+    displayDiv.innerHTML = displayDiv.innerHTML.slice(0, displayDiv.innerHTML.length - 1)
+})
 
 
 
