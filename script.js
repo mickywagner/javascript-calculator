@@ -40,8 +40,8 @@ function operate(op, in1, in2) {
             result = displayValue
     }
     if(typeof(result) === 'number') {
-        displayValue = Math.round(1000*result)/1000;
-        displayDiv.innerHTML = Math.round(1000*result)/1000;
+        displayValue = Math.round(1000*result)/10000;
+        displayDiv.innerHTML = Math.round(1000*result)/10000;
         return result
     } else {
         displayValue = result
@@ -60,9 +60,17 @@ let input2;
 let operator;
 console.log("Start : " + operator, input1, input2)
 
+let MAXLENGTH = 15
+
+function checkLength() {
+    if(displayDiv.innerHTML.length > MAXLENGTH) {
+        displayDiv.innerHTML = displayDiv.innerHTML.slice(0, displayDiv.innerHTML.length -1)
+    }}
 
 let clear = document.querySelector('#clear')
-clear.addEventListener('click', () => {
+clear.addEventListener('click',  clearCalc)
+
+function clearCalc() {
     displayValue = ""
     displayDiv.innerHTML = displayValue
     input1 = undefined
@@ -72,7 +80,7 @@ clear.addEventListener('click', () => {
     if(dot.disabled === true) {
         dot.disabled = false
     }
-})
+}
 
 let numBtns = document.querySelectorAll('.num')
 numBtns.forEach(button => button.addEventListener('click', (e) => {
@@ -82,7 +90,8 @@ numBtns.forEach(button => button.addEventListener('click', (e) => {
         displayDiv.innerHTML = e.target.id
     } else {
         displayValue = displayDiv.innerHTML = displayDiv.innerHTML + e.target.id
-    }   
+    }
+    checkLength()
 }))
 
 let operatorBtns = document.querySelectorAll('.operator')
