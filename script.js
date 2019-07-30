@@ -14,7 +14,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
-        return `One does not simply divide by zero!`
+        return `Nice try;)`
     }
     return a / b
 }
@@ -40,8 +40,8 @@ function operate(op, in1, in2) {
             result = displayValue
     }
     if(typeof(result) === 'number') {
-        displayValue = Math.round(1000*result)/10000;
-        displayDiv.innerHTML = Math.round(1000*result)/10000;
+        displayValue = Math.round(10000*result)/10000;
+        displayDiv.innerHTML = Math.round(10000*result)/10000;
         return result
     } else {
         displayValue = result
@@ -60,7 +60,7 @@ let input2;
 let operator;
 console.log("Start : " + operator, input1, input2)
 
-let MAXLENGTH = 15
+let MAXLENGTH = 11
 
 function checkLength() {
     if(displayDiv.innerHTML.length > MAXLENGTH) {
