@@ -39,7 +39,10 @@ function operate(op, in1, in2) {
         case 'equal':
             result = displayValue
     }
-    if(typeof(result) === 'number') {
+    
+    if(result > 99999999999) {
+        displayDiv.innerHTML = result.toExponential(2)
+    } else if(typeof(result) === 'number') {
         displayValue = Math.round(10000*result)/10000;
         displayDiv.innerHTML = Math.round(10000*result)/10000;
         return result
@@ -48,7 +51,6 @@ function operate(op, in1, in2) {
         displayDiv.innerHTML = result
         return result
     }
-    console.log("math func: " + input1 + " " + input2 + " " + operator)
 }
 
 // Button Events and Functions
@@ -58,7 +60,6 @@ let displayValue;
 let input1;
 let input2;
 let operator;
-console.log("Start : " + operator, input1, input2)
 
 let MAXLENGTH = 11
 
@@ -76,7 +77,6 @@ function clearCalc() {
     input1 = undefined
     input2 = undefined
     operator = undefined
-    console.log("Clear : " + operator, input1, input2)
     if(dot.disabled === true) {
         dot.disabled = false
     }
@@ -96,7 +96,6 @@ numBtns.forEach(button => button.addEventListener('click', (e) => {
 
 let operatorBtns = document.querySelectorAll('.operator')
 operatorBtns.forEach(button => button.addEventListener('click', (e) => {
-    console.log("Operator: " + input1 + " " + input2 + " " + operator)
     if(operator !== undefined && input1 !== undefined) {
         input2 = e.path[1].childNodes[1].innerHTML
         operate(operator, input1, input2)
@@ -117,7 +116,6 @@ operatorBtns.forEach(button => button.addEventListener('click', (e) => {
 let equalBtn = document.querySelector('#equal')
 equalBtn.addEventListener('click', (e) => {
     input2 = e.path[1].childNodes[1].innerHTML
-    console.log("EqualBtn: " + input1 + " " + input2 + " " + operator)
     operate(operator, input1, input2)
     if(equalBtn.disabled === false) {
         equalBtn.disabled = true
