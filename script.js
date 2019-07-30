@@ -42,6 +42,7 @@ function operate(op, in1, in2) {
     
     if(result > 99999999999) {
         displayDiv.innerHTML = result.toExponential(2)
+        return result
     } else if(typeof(result) === 'number') {
         displayValue = Math.round(10000*result)/10000;
         displayDiv.innerHTML = Math.round(10000*result)/10000;
