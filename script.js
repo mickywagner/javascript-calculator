@@ -134,5 +134,15 @@ backSpace.addEventListener('click', () => {
     displayDiv.innerHTML = displayDiv.innerHTML.slice(0, displayDiv.innerHTML.length - 1)
 })
 
+let plusMinus = document.querySelector('#plusMinus')
+plusMinus.addEventListener('click', () => {   
+    displayDiv.innerHTML = displayDiv.innerHTML * -1
+})
+
+let percent = document.querySelector('#percent') 
+percent.addEventListener('click', () => {
+    displayDiv.innerHTML = displayDiv.innerHTML / 100
+})
+
 
 
