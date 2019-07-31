@@ -8,4 +8,4 @@
 <li>Calculator operations include addition, subtraction, multiplication, and division</li>
 </ol>
 
-<img src="image.png" style="height: 500px">
+<img src="image.png" style="width: 500px">
