@@ -1,6 +1,5 @@
 # Javascript Calculator
 
-<<<<<<< HEAD
 <h3>Screenshots</h3>
 <img src="app.gif">
 
