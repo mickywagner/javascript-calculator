@@ -7,8 +7,8 @@
 <p>My first JS calculator app. Created as one of the early projects in the Web Development course on <a href="https://www.theodinproject.com/">Odin Project</a>.
 The calculator can add, subtract, multiply, and divide both positive and negative numbers. The idea being to practice operators>
 </p>
-<p>Full project brief <a href="">here</a></p>
-<p>Live version <a href="">here</a>.</p>
+<p>Full project brief <a href="https://www.theodinproject.com/courses/web-development-101/lessons/calculator">here</a></p>
+<p>Live version <a href="https://mickywagner.github.io/javascript-calculator/">here</a>.</p>
 
 
 <h3>Technical Sheet</h3>
