@@ -1,5 +1,6 @@
 # Javascript Calculator
 
+<<<<<<< HEAD
 <h3>Screenshots</h3>
 <img src="app.gif">
 
@@ -20,4 +21,3 @@ The calculator can add, subtract, multiply, and divide both positive and negativ
   <li>Javascript</li>
 </ul>
 </strong>
-
